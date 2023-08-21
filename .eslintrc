@@ -1,0 +1,20 @@
+{
+    "root": true,
+    "extends": [
+        "@aimerfan",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "parser": "vue-eslint-parser",
+    "parserOptions": {
+        "parser": "@typescript-eslint/parser",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "ignorePatterns": [
+        "!docs/.vitepress",
+        "docs/.vitepress/cache",
+        "docs/.vitepress/dist"
+    ]
+}

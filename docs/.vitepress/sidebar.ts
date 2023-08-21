@@ -1,0 +1,49 @@
+import type { DefaultTheme } from "vitepress";
+
+const sidebar: DefaultTheme.Sidebar = {
+    "/web/": [
+        {
+            text: "前端缓存",
+            link: "/web/cache",
+        },
+        {
+            text: "Vue setup 中的异步函数",
+            link: "/web/vue/async-with-composition-api",
+        },
+        {
+            text: "Qiankun 微前端",
+            link: "/web/qiankun",
+        },
+        {
+            text: "JavaScript内存回收机制",
+            link: "/web/v8-gc",
+        },
+    ],
+    "/notes/": [
+        {
+            text: "Vue SFC 报错 Property '$attrs' does not exist on type '{}'",
+            link: "/notes/volar-vue-sfc-type-error",
+        },
+        {
+            text: "BUG记录",
+            items: [
+                {
+                    text: "v-permission 渲染异常",
+                    link: "/notes/bugs/permission",
+                },
+                {
+                    text: "safari 标题栏颜色异常",
+                    link: "/notes/bugs/safari-theme-color",
+                },
+            ],
+        },
+    ],
+    "/others/": [
+        {
+            text: "推荐链接",
+            link: "/others/links",
+        },
+    ],
+};
+
+export default sidebar;
