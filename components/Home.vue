@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 import Button from "./Button.vue";
-import sider from "../docs/.vitepress/sidebar";
+import sidebar from "../docs/.vitepress/sidebar";
 import { getHomeLinkByPrefix } from "../docs/.vitepress/utils/sidebar-helper";
 
-const link = getHomeLinkByPrefix(sider, "/web/");
+const link = getHomeLinkByPrefix(sidebar, "/web/");
 </script>
 
 <template>

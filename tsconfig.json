@@ -1,14 +1,15 @@
 {
     "extends": "@vue/tsconfig/tsconfig.dom.json",
     "include": [
+        "types/*.ts",
         "docs/.vitepress/**/*.ts",
-        "components/**/*.vue"
+        "components/**/*.vue",
     ],
     "compilerOptions": {
         "baseUrl": ".",
         "paths": {
             "@/*": [
-                "./src/*"
+                "./*"
             ]
         }
     }

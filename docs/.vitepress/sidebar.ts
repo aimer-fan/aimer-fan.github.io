@@ -3,6 +3,10 @@ import type { DefaultTheme } from "vitepress";
 const sidebar: DefaultTheme.Sidebar = {
     "/web/": [
         {
+            text: "View Transitions",
+            link: "/web/view-transitions",
+        },
+        {
             text: "前端缓存",
             link: "/web/cache",
         },
