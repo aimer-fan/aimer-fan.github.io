@@ -12,10 +12,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@aimerfan/eslint-config": "^0.0.1",
+    "@aimerfan/eslint-config-typescript": "^0.0.1",
     "@types/node": "^20.5.9",
-    "@typescript-eslint/eslint-plugin": "^6.3.0",
-    "@typescript-eslint/parser": "^6.3.0",
     "@vue/tsconfig": "^0.4.0",
     "eslint": "^8.46.0",
     "eslint-plugin-vue": "^9.17.0",

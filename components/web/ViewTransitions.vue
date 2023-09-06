@@ -32,7 +32,7 @@ function handleClick (e: MouseEvent) {
             </div>
 
             <div flex justify-center m8 flex-wrap gap8>
-                <div v-for="i in 6" class="w-1/4 aspect-video bg-blue-600 rd-2"></div>
+                <div v-for="i in 6" :key="i" class="w-1/4 aspect-video bg-blue-600 rd-2"></div>
             </div>
         </div>
     </div>
