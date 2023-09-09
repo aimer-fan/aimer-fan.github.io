@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-    import ViewTransitions from "@/components/web/ViewTransitions.vue"
     import ViewTransitionsRaw from "@/components/web/ViewTransitions.vue?raw"
 </script>
 # View Transitions
@@ -8,7 +7,6 @@
 
 使用 `document.startViewTransition(callback)` 并传入一个回调函数，并在回调函数中变更 DOM，浏览器会自动为 DOM 元素添加过渡动画。
 
-:::details Demo
 ```js
 function updateView(event) {
   const target = event.target;
@@ -27,11 +25,8 @@ function updateView(event) {
   const transition = document.startViewTransition(() => move());
 }
 ```
-:::
 
 ## 深色模式过渡
-
-<ViewTransitions />
 
 :::details ViewTransitions.vue
 ```vue-vue

@@ -19,7 +19,7 @@
     "eslint-plugin-vue": "^9.17.0",
     "typescript": "^5.1.6",
     "unocss": "^0.55.7",
-    "vitepress": "1.0.0-rc.4"
+    "vitepress": "1.0.0-rc.10"
   },
   "dependencies": {
     "vue": "^3.3.4"

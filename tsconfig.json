@@ -1,9 +1,10 @@
 {
     "extends": "@vue/tsconfig/tsconfig.dom.json",
     "include": [
-        "types/*.ts",
         "docs/.vitepress/**/*.ts",
+        "docs/.vitepress/**/*.vue",
         "components/**/*.vue",
+        "types/**/*.ts"
     ],
     "compilerOptions": {
         "baseUrl": ".",
