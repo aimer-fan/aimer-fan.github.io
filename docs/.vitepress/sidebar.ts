@@ -28,6 +28,10 @@ const sidebar: DefaultTheme.Sidebar = {
             text: "Bash 简介",
             link: "/bash/1.introduction",
         },
+        {
+            text: "Bash 基本语法",
+            link: "/bash/2.basic-syntax",
+        },
     ],
     "/notes/": [
         {
