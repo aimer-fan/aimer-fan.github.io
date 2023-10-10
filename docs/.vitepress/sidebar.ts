@@ -23,6 +23,12 @@ const sidebar: DefaultTheme.Sidebar = {
             link: "/web/v8-gc",
         },
     ],
+    "/bash/": [
+        {
+            text: "Bash 简介",
+            link: "/bash/1.introduction",
+        },
+    ],
     "/notes/": [
         {
             text: "Vue SFC 报错 Property '$attrs' does not exist on type '{}'",

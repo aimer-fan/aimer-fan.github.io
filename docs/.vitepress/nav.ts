@@ -10,6 +10,11 @@ const nav: DefaultTheme.NavItem[] = [
         activeMatch: "/web/",
     },
     {
+        text: "Bash",
+        link: getHomeLinkByPrefix(sidebar, "/bash/"),
+        activeMatch: "/bash/",
+    },
+    {
         text: "笔记",
         link: getHomeLinkByPrefix(sidebar, "/notes/"),
         activeMatch: "/notes/",
