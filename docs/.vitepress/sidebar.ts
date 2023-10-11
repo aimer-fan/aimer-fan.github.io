@@ -32,6 +32,10 @@ const sidebar: DefaultTheme.Sidebar = {
             text: "Bash 基本语法",
             link: "/bash/2.basic-syntax",
         },
+        {
+            text: "Bash的模式扩展",
+            link: "/bash/3.schema-extension",
+        },
     ],
     "/notes/": [
         {
