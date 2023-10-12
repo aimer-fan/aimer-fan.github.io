@@ -40,6 +40,10 @@ const sidebar: DefaultTheme.Sidebar = {
             text: "引号和转义",
             link: "/bash/4.quotes-and-escaping",
         },
+        {
+            text: "Bash环境变量",
+            link: "/bash/5.env-variables",
+        },
     ],
     "/notes/": [
         {
