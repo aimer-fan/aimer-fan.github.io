@@ -1,7 +1,4 @@
-import { relative, resolve } from "path";
 import type { DefaultTheme } from "vitepress";
-import { projectRootPath } from "./constants";
-import { readFileSync } from "fs";
 
 const FALLBACK_URL = "/404";
 
@@ -34,26 +31,4 @@ function getHomeLinkFromSidebarItems (items: DefaultTheme.SidebarItem[], prefix:
     const item = _items.find(_item => _item.link && _item.link.startsWith(prefix));
 
     return item && item.link ? item.link : FALLBACK_URL;
-}
-
-/**
- * 通过路径映射成 sidebar 的配置
- */
-export function genSidebarItemByPath (path: string): DefaultTheme.SidebarItem {
-    if (path.startsWith("/")) path = path.slice(1);
-
-    if (!path.endsWith(".md")) path += ".md";
-
-    const fullPath = resolve(projectRootPath, path);
-    const relativePath = relative(projectRootPath, fullPath);
-    return {
-        link: "/" + relativePath,
-        text: getMarkdownTitle(fullPath),
-    };
-}
-
-function getMarkdownTitle (path: string) {
-    const content = readFileSync(path, "utf8");
-    const match = content.match(/(?<=(^#)\s).*/);
-    return match ? match[0] : "";
 }

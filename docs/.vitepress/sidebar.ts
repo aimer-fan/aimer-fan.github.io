@@ -1,5 +1,5 @@
 import type { DefaultTheme } from "vitepress";
-import { genSidebarItemByPath } from "./utils/sidebar-helper";
+import { genSidebarItemByPath } from "./utils/sidebar-helper-node";
 
 const sidebar: DefaultTheme.Sidebar = {
     "/web/": [

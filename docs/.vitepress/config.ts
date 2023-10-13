@@ -3,7 +3,7 @@ import UnoCSS from "unocss/vite";
 
 import sidebar from "./sidebar";
 import nav from "./nav";
-import { projectRootPath } from "./utils/constants";
+import { PROJECT_ROOT_PATH } from "./utils/constants";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -36,7 +36,7 @@ export default defineConfig({
         ],
         resolve: {
             alias: {
-                "@": projectRootPath,
+                "@": PROJECT_ROOT_PATH,
             },
         },
     },

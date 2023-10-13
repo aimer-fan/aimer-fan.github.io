@@ -1,8 +1,11 @@
 <script lang="ts" setup>
 import Button from "./Button.vue";
-import sidebar from "../docs/.vitepress/sidebar";
+// import sidebar from "../docs/.vitepress/sidebar";
 import { getHomeLinkByPrefix } from "../docs/.vitepress/utils/sidebar-helper";
+import { useData } from "vitepress";
 
+const { theme } = useData();
+const sidebar = theme.value.sidebar;
 const link = getHomeLinkByPrefix(sidebar, "/web/");
 </script>
 
