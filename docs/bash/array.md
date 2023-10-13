@@ -318,8 +318,9 @@ a b c d e f
 
 ## 删除数组
 
-删除一个数组成员，使用`unset`命令。
+~~删除一个数组成员，使用`unset`命令。~~
 
+:::details
 ```bash
 $ foo=(a b c d e f)
 $ echo ${foo[@]}
@@ -329,8 +330,31 @@ $ unset foo[2]
 $ echo ${foo[@]}
 a b d e f
 ```
+:::
+~~上面例子中，删除了数组中的第三个元素，下标为2。~~
 
-上面例子中，删除了数组中的第三个元素，下标为2。
+使用字符串的替换方法`${array[@]/$delete}`来删除数组成员。
+
+```bash
+$ foo=(a b c d e f)
+$ delete=b
+$ echo ${foo[@]/$delete}
+a c d e f
+$ foo=( "${foo[@]/$delete}" ) # Quotes when working with strings
+$ echo ${foo[@]}
+a c d e f
+```
+
+如果需要批量删除元素，则需要使用 `for` 循环。
+
+```bash
+foo=(a b c d e f)
+delete=(b c)
+for del in ${delete[@]}
+do
+   foo=("${foo[@]/$del}") # Quotes when working with strings
+done
+```
 
 将某个成员设为空值，可以从返回值中“隐藏”这个成员。
 
