@@ -1,13 +1,9 @@
 import { defineConfig } from "vitepress";
-import { dirname, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
 import UnoCSS from "unocss/vite";
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const projectRootPath = resolve(__dirname, "../../");
 
 import sidebar from "./sidebar";
 import nav from "./nav";
+import { projectRootPath } from "./utils/constants";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({

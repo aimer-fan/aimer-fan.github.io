@@ -1,4 +1,5 @@
 import type { DefaultTheme } from "vitepress";
+import { genSidebarItemByPath } from "./utils/sidebar-helper";
 
 const sidebar: DefaultTheme.Sidebar = {
     "/web/": [
@@ -24,27 +25,27 @@ const sidebar: DefaultTheme.Sidebar = {
         },
     ],
     "/bash/": [
-        {
-            text: "Bash 简介",
-            link: "/bash/1.introduction",
-        },
-        {
-            text: "Bash 基本语法",
-            link: "/bash/2.basic-syntax",
-        },
-        {
-            text: "Bash的模式扩展",
-            link: "/bash/3.schema-extension",
-        },
-        {
-            text: "引号和转义",
-            link: "/bash/4.quotes-and-escaping",
-        },
-        {
-            text: "Bash环境变量",
-            link: "/bash/5.env-variables",
-        },
-    ],
+        "/bash/introduction",
+        "/bash/basic-syntax",
+        "/bash/schema-extension",
+        "/bash/quotes-and-escaping",
+        "/bash/env-variables",
+        "/bash/strings",
+        "/bash/arithmetic",
+        "/bash/readline",
+        "/bash/stack",
+        "/bash/script",
+        "/bash/read",
+        "/bash/condition",
+        "/bash/loop",
+        "/bash/function",
+        "/bash/array",
+        "/bash/set",
+        "/bash/debug",
+        "/bash/mktemp",
+        "/bash/startup",
+        "/bash/prompt",
+    ].map(genSidebarItemByPath),
     "/notes/": [
         {
             text: "Vue SFC 报错 Property '$attrs' does not exist on type '{}'",
