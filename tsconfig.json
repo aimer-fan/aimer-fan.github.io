@@ -1,17 +1,18 @@
 {
-    "extends": "@vue/tsconfig/tsconfig.dom.json",
-    "include": [
-        "docs/.vitepress/**/*.ts",
-        "docs/.vitepress/**/*.vue",
-        "components/**/*.vue",
-        "types/**/*.ts"
-    ],
-    "compilerOptions": {
-        "baseUrl": ".",
-        "paths": {
-            "@/*": [
-                "./*"
-            ]
-        }
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "include": [
+    "docs/.vitepress/**/*.ts",
+    "docs/.vitepress/**/*.vue",
+    "components/**/*.vue",
+    "types/**/*.ts"
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
     }
+  }
 }

@@ -2,26 +2,25 @@
   "name": "aimer-fan.github.io",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
   "scripts": {
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:preview": "vitepress preview docs",
+    "lint": "eslint --fix ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@aimerfan/eslint-config-typescript": "^0.0.1",
-    "@types/node": "^20.5.9",
+    "@aimerfan/eslint-config-vue-ts": "^0.0.8",
+    "@types/node": "^20.10.4",
     "@vue/tsconfig": "^0.4.0",
-    "eslint": "^8.46.0",
-    "eslint-plugin-vue": "^9.17.0",
-    "typescript": "^5.1.6",
+    "eslint": "^8.55.0",
+    "typescript": "^5.3.3",
     "unocss": "^0.55.7",
     "vitepress": "1.0.0-rc.10"
   },
   "dependencies": {
-    "vue": "^3.3.4"
+    "vue": "^3.3.11"
   }
 }

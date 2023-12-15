@@ -1,9 +1,9 @@
 {
-    "typescript.tsdk": "node_modules/typescript/lib",
-    "cSpell.words": [
-        "Attributify",
-        "qiankun",
-        "unocss",
-        "vitepress"
-    ]
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "cSpell.words": [
+    "Attributify",
+    "qiankun",
+    "unocss",
+    "vitepress"
+  ]
 }

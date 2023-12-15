@@ -5,37 +5,51 @@ import Button from "../Button.vue";
 const dark = ref(true);
 
 function handleClick (e: MouseEvent) {
-    const { clientX, clientY } = e;
+  const { clientX, clientY } = e;
 
-    document.documentElement.style.setProperty("--x", clientX + "px");
-    document.documentElement.style.setProperty("--y", clientY + "px");
+  document.documentElement.style.setProperty("--x", clientX + "px");
+  document.documentElement.style.setProperty("--y", clientY + "px");
 
-    if (document.startViewTransition) {
-        document.startViewTransition(() => {
-            dark.value = !dark.value;
-        });
-    } else {
-        dark.value = !dark.value;
-    }
+  if (document.startViewTransition) {
+    document.startViewTransition(() => {
+      dark.value = !dark.value;
+    });
+  } else {
+    dark.value = !dark.value;
+  }
 }
 
 </script>
 
 <template>
-    <div :class="{ 'view-transitions-dark': dark }">
-        <div
-            b-1 b-solid b-rd-2 p-4
-            class="view-transitions-container"
-        >
-            <div flex justify-center items-center m8>
-                <Button @click="handleClick">切换</Button>
-            </div>
+  <div :class="{ 'view-transitions-dark': dark }">
+    <div
+      b-1
+      b-solid
+      b-rd-2
+      p-4
+      class="view-transitions-container"
+    >
+      <div
+        flex
+        justify-center
+        items-center
+        m8
+      >
+        <Button @click="handleClick">切换</Button>
+      </div>
 
-            <div flex justify-center m8 flex-wrap gap8>
-                <div v-for="i in 6" :key="i" class="w-1/4 aspect-video bg-blue-600 rd-2"></div>
-            </div>
-        </div>
+      <div
+        flex
+        justify-center
+        m8
+        flex-wrap
+        gap8
+      >
+        <div v-for="i in 6" :key="i" class="w-1/4 aspect-video bg-blue-600 rd-2"></div>
+      </div>
     </div>
+  </div>
 </template>
 
 <style>

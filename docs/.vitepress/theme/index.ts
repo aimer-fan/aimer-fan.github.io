@@ -5,6 +5,6 @@ import "./custom.css";
 import "virtual:uno.css";
 
 export default {
-    ...DefaultTheme,
-    Layout,
+  ...DefaultTheme,
+  Layout,
 };
