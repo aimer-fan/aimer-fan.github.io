@@ -1,5 +1,4 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "@vue/tsconfig/tsconfig.dom.json",
   "include": [
     "docs/.vitepress/**/*.ts",

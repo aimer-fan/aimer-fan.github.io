@@ -1,9 +1,11 @@
 import { defineConfig } from "vitepress";
 import UnoCSS from "unocss/vite";
+import mathjax3 from "markdown-it-mathjax3"
 
 import sidebar from "./sidebar";
 import nav from "./nav";
 import { PROJECT_ROOT_PATH } from "./utils/constants";
+import { customElements } from "./utils/custom-elements"
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -14,7 +16,9 @@ export default defineConfig({
   markdown: {
     lineNumbers: true,
     // markdown-it config
-    // config (md) {},
+    config (md) {
+      md.use(mathjax3)
+    },
   },
   themeConfig: {
     logo: "/images/logo.png",
@@ -29,6 +33,13 @@ export default defineConfig({
       indexName: "aimer-fanio",
       placeholder: "请输入关键词",
     },
+  },
+  vue: {
+    template: {
+      compilerOptions: {
+        isCustomElement: (tag) => customElements.includes(tag)
+      }
+    }
   },
   vite: {
     plugins: [
