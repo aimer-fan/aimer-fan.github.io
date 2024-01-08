@@ -1,11 +1,11 @@
 import { defineConfig } from "vitepress";
 import UnoCSS from "unocss/vite";
-import mathjax3 from "markdown-it-mathjax3"
+import mathjax3 from "markdown-it-mathjax3";
 
 import sidebar from "./sidebar";
 import nav from "./nav";
 import { PROJECT_ROOT_PATH } from "./utils/constants";
-import { customElements } from "./utils/custom-elements"
+import { customElements } from "./utils/custom-elements";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -17,7 +17,7 @@ export default defineConfig({
     lineNumbers: true,
     // markdown-it config
     config (md) {
-      md.use(mathjax3)
+      md.use(mathjax3);
     },
   },
   themeConfig: {
@@ -37,9 +37,9 @@ export default defineConfig({
   vue: {
     template: {
       compilerOptions: {
-        isCustomElement: (tag) => customElements.includes(tag)
-      }
-    }
+        isCustomElement: (tag) => customElements.includes(tag),
+      },
+    },
   },
   vite: {
     plugins: [
