@@ -15,6 +15,11 @@ const nav: DefaultTheme.NavItem[] = [
     activeMatch: "/bash/",
   },
   {
+    text: "Nginx",
+    link: getHomeLinkByPrefix(sidebar, "/nginx/"),
+    activeMatch: "/nginx/",
+  },
+  {
     text: "笔记",
     link: getHomeLinkByPrefix(sidebar, "/notes/"),
     activeMatch: "/notes/",

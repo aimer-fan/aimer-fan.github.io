@@ -46,6 +46,9 @@ const sidebar: DefaultTheme.Sidebar = {
     "/bash/startup",
     "/bash/prompt",
   ].map(genSidebarItemByPath),
+  "/nginx/": [
+    "/nginx/location",
+  ].map(genSidebarItemByPath),
   "/notes/": [
     {
       text: "Vue SFC 报错 Property '$attrs' does not exist on type '{}'",
