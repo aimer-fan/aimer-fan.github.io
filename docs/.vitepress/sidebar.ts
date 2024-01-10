@@ -37,6 +37,7 @@ const sidebar: DefaultTheme.Sidebar = {
 
   "/nginx/": [
     "/nginx/location",
+    "/nginx/proxy-pass",
   ].map(genSidebarItemByPath),
 
   "/notes/": [
