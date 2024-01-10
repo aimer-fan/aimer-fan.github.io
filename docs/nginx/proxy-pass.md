@@ -122,3 +122,7 @@ location /name/ {
   proxy_pass http://example.com/mock$request_uri;
 }
 ```
+
+## Refs
+
++ [proxy_pass](https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_pass)
