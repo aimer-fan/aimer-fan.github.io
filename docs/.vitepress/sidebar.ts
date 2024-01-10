@@ -2,6 +2,7 @@ import type { DefaultTheme } from "vitepress";
 import { genSidebarItemByPath } from "./utils/sidebar-helper-node";
 
 const sidebar: DefaultTheme.Sidebar = {
+
   "/web/": [
     "/web/manual-cpu-throttling-rate",
     "/web/view-transitions",
@@ -39,30 +40,14 @@ const sidebar: DefaultTheme.Sidebar = {
   ].map(genSidebarItemByPath),
 
   "/notes/": [
-    {
-      text: "Vue SFC 报错 Property '$attrs' does not exist on type '{}'",
-      link: "/notes/volar-vue-sfc-type-error",
-    },
-    {
-      text: "BUG记录",
-      items: [
-        {
-          text: "v-permission 渲染异常",
-          link: "/notes/bugs/permission",
-        },
-        {
-          text: "safari 标题栏颜色异常",
-          link: "/notes/bugs/safari-theme-color",
-        },
-      ],
-    },
-  ],
+    "/notes/volar-vue-sfc-type-error",
+    "/notes/bugs/permission",
+    "/notes/bugs/safari-theme-color",
+  ].map(genSidebarItemByPath),
+
   "/others/": [
-    {
-      text: "推荐链接",
-      link: "/others/links",
-    },
-  ],
+    "/others/links",
+  ].map(genSidebarItemByPath),
 };
 
 export default sidebar;
