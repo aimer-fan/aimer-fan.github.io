@@ -2,7 +2,7 @@
 
 根据配置的 uri 处理对应的请求
 
-```text
+```txt
 Syntax: location [ = | ~ | ~* | ^~ ] uri { ... }
         location @name { ... }
 Default: -
