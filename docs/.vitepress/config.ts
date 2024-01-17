@@ -50,5 +50,8 @@ export default defineConfig({
         "@": PROJECT_ROOT_PATH,
       },
     },
+    ssr: {
+      noExternal: ["monaco-edittor"],
+    },
   },
 });
