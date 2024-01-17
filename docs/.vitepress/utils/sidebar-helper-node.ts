@@ -22,6 +22,6 @@ export function genSidebarItemByPath (path: string): DefaultTheme.SidebarItem {
 
 function getMarkdownTitle (path: string) {
   const content = readFileSync(path, "utf8");
-  const match = content.match(/(?<=(^#)\s).*/);
+  const match = content.match(/(?<=(^#)\s).*/mg);
   return match ? match[0] : "";
 }

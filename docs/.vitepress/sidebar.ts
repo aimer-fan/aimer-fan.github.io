@@ -41,6 +41,7 @@ const sidebar: DefaultTheme.Sidebar = {
   ].map(genSidebarItemByPath),
 
   "/notes/": [
+    "/notes/type/format-date",
     "/notes/volar-vue-sfc-type-error",
     "/notes/bugs/permission",
     "/notes/bugs/safari-theme-color",
