@@ -9,7 +9,7 @@ layout: DocPage
   import data from './format-date.ts?raw'
   import { inBrowser } from 'vitepress';
 
-  const line = data.split('\n').length + 1
+  const line = data.split('\n').length * 1.5
 
   const MonacoEditor = inBrowser
     ? defineAsyncComponent(() => import('@/components/MonacoEditor/MonacoEditor.vue'))
@@ -19,5 +19,10 @@ layout: DocPage
 </script> 
 
 <ClientOnly>
-  <MonacoEditor class="mt8 text-lg" :style="{ height: line + 'em' }" v-model="code" lang="typescript" />
+  <div class="mt-8">
+    <Suspense>
+      <template #fallback>Loading...</template>
+      <MonacoEditor :style="{ height: line + 'em' }" v-model="code" lang="typescript" />
+    </Suspense>
+  </div>
 </ClientOnly>

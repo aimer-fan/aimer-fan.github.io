@@ -8,6 +8,9 @@
 import type * as Monaco from "monaco-editor";
 import * as monaco from "monaco-editor";
 import { computed, onMounted, onUnmounted, ref, shallowRef, watch } from "vue";
+import themeDark from "./theme/vitepress-dark";
+import themeLight from "./theme/vitepress-light";
+import { useData } from "vitepress";
 import "./worker.js";
 
 interface Props {
@@ -44,9 +47,13 @@ let editor: Monaco.editor.IStandaloneCodeEditor;
 let model: Monaco.editor.ITextModel;
 const editorRef = shallowRef<Monaco.editor.IStandaloneCodeEditor>();
 
+monaco.editor.defineTheme("vitepress-dark", themeDark);
+monaco.editor.defineTheme("vitepress-light", themeLight);
+
 const defaultOptions: Monaco.editor.IStandaloneEditorConstructionOptions = {
   automaticLayout: true,
-  theme: "vs-dark",
+  fontSize: 14,
+  theme: "vitepress-dark",
 };
 
 const { assign } = Object;
@@ -63,6 +70,11 @@ watch(() => props.lang, () => {
 
 watch(() => props.options, () => {
   editor?.updateOptions(assign({}, props.options, defaultOptions));
+});
+
+const { isDark } = useData();
+watch(isDark, (isDark) => {
+  editor?.updateOptions({ theme: isDark ? "vitepress-dark" : "vitepress-light" });
 });
 
 defineExpose({
@@ -89,3 +101,4 @@ onUnmounted(() => {
   model?.dispose();
 });
 </script>
+./theme/vitepress-dark
