@@ -35,4 +35,4 @@ type FormatDate<Pattern extends string> = Pattern extends `${infer A}${Splitter}
         : never
     : never
 
-type FormatedDate = FormatDate<"YY/DD/MM">
+export type FormatedDate = FormatDate<"YY/DD/MM">
