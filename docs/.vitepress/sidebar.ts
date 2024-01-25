@@ -4,6 +4,7 @@ import { genSidebarItemByPath } from "./utils/sidebar-helper-node";
 const sidebar: DefaultTheme.Sidebar = {
 
   "/web/": [
+    "/web/css",
     "/web/manual-cpu-throttling-rate",
     "/web/view-transitions",
     "/web/cache",
