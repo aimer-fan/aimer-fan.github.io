@@ -13,6 +13,7 @@ export default defineConfig({
   title: "AimerFan",
   description: "AimerFanのBlog",
   lastUpdated: true,
+  cleanUrls: true,
   markdown: {
     lineNumbers: true,
     // markdown-it config
