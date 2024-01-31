@@ -25,7 +25,7 @@ const nav: DefaultTheme.NavItem[] = [
     activeMatch: "/notes/",
   },
   {
-    text: "推荐链接",
+    text: "其他",
     link: getHomeLinkByPrefix(sidebar, "/others/"),
     activeMatch: "/others/",
   },

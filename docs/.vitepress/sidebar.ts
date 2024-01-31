@@ -50,6 +50,7 @@ const sidebar: DefaultTheme.Sidebar = {
 
   "/others/": [
     "/others/links",
+    "/others/vscode-settings",
   ].map(genSidebarItemByPath),
 };
 
