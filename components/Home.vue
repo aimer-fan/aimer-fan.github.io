@@ -12,7 +12,7 @@ const link = getHomeLinkByPrefix(sidebar, "/web/");
 <template>
   <div class="home-container">
     <a href="https://www.pixiv.net/artworks/20182174" target="_blank">
-      <img class="image-src" src="/images/logo.png">
+      <img class="image-src" src="/images/logo.png" alt="愛玩用（？）エンジェロイドさん">
     </a>
     <h1 class="title">AimerFanのBlog</h1>
     <p class="sub-title">故不积跬步，无以至千里；不积小流，无以成江海。</p>
