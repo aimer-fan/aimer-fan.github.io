@@ -50,10 +50,12 @@ const editorRef = shallowRef<Monaco.editor.IStandaloneCodeEditor>();
 monaco.editor.defineTheme("vitepress-dark", themeDark);
 monaco.editor.defineTheme("vitepress-light", themeLight);
 
+const { isDark } = useData();
+
 const defaultOptions: Monaco.editor.IStandaloneEditorConstructionOptions = {
   automaticLayout: true,
   fontSize: 14,
-  theme: "vitepress-dark",
+  theme: isDark .value ? "vitepress-dark" : "vitepress-light",
 };
 
 const { assign } = Object;
@@ -72,7 +74,6 @@ watch(() => props.options, () => {
   editor?.updateOptions(assign({}, props.options, defaultOptions));
 });
 
-const { isDark } = useData();
 watch(isDark, (isDark) => {
   editor?.updateOptions({ theme: isDark ? "vitepress-dark" : "vitepress-light" });
 });
