@@ -1,3 +1,7 @@
+---
+layout: DocPage
+---
+
 # VS Code User Settings Backup
 
 ```json5
