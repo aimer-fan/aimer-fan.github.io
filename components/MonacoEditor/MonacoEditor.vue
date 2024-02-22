@@ -102,4 +102,3 @@ onUnmounted(() => {
   model?.dispose();
 });
 </script>
-./theme/vitepress-dark
