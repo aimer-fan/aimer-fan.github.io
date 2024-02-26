@@ -21,5 +21,6 @@
   background-color: var(--vp-button-brand-bg);
   cursor: pointer;
   user-select: none;
+  text-decoration: none;
 }
 </style>

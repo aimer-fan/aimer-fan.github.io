@@ -1,12 +1,10 @@
-import type * as Monaco from "monaco-editor";
+import type * as Monaco from 'monaco-editor'
 
 const vitepress: Monaco.editor.IStandaloneThemeData = {
-  base: "vs",
+  base: 'vs',
   inherit: true,
   rules: [],
-  colors: {
-    "editor.background": "#ffffffff",
-  },
-};
+  colors: { 'editor.background': '#ffffffff' },
+}
 
-export default vitepress;
+export default vitepress

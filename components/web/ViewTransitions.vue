@@ -1,22 +1,20 @@
 <script lang="ts" setup>
-import { ref } from "vue";
-import Button from "../Button.vue";
+import { ref } from 'vue'
+import Button from '../Button.vue'
 
-const dark = ref(true);
+const dark = ref(true)
 
 function handleClick (e: MouseEvent) {
-  const { clientX, clientY } = e;
+  const { clientX, clientY } = e
 
-  document.documentElement.style.setProperty("--x", clientX + "px");
-  document.documentElement.style.setProperty("--y", clientY + "px");
-
-  if (document.startViewTransition) {
+  document.documentElement.style.setProperty('--x', clientX + 'px')
+  document.documentElement.style.setProperty('--y', clientY + 'px')
+  if (document.startViewTransition)
     document.startViewTransition(() => {
-      dark.value = !dark.value;
-    });
-  } else {
-    dark.value = !dark.value;
-  }
+      dark.value = !dark.value
+    })
+  else
+    dark.value = !dark.value
 }
 
 </script>
