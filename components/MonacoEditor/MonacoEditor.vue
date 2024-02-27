@@ -30,9 +30,9 @@ interface Props {
 
 interface Emits {
   // eslint-disable-next-line no-unused-vars
-  (event: 'update:modelValue', value: string): void
+  (event: 'update:modelValue', value: string): void;
   // eslint-disable-next-line no-unused-vars
-  (event: 'load', editor: Monaco.editor.IStandaloneCodeEditor): void
+  (event: 'load', editor: Monaco.editor.IStandaloneCodeEditor): void;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -65,13 +65,11 @@ const defaultOptions: Monaco.editor.IStandaloneEditorConstructionOptions = {
 const { assign } = Object
 
 watch(() => props.modelValue, () => {
-  if (editor?.getValue() !== props.modelValue)
-    editor?.setValue(props.modelValue)
+  if (editor?.getValue() !== props.modelValue) editor?.setValue(props.modelValue)
 })
 
 watch(() => props.lang, () => {
-  if (model)
-    model.dispose()
+  if (model) model.dispose()
   model = monaco.editor.createModel(props.modelValue, lang.value)
   editor?.setModel(model)
 })

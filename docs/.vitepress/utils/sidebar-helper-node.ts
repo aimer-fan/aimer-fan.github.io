@@ -7,11 +7,9 @@ import { MARKDOWN_ROOT_PATH } from './constants'
  * 通过路径映射成 sidebar 的配置
  */
 export function genSidebarItemByPath (path: string): DefaultTheme.SidebarItem {
-  if (path.startsWith('/'))
-    path = path.slice(1)
+  if (path.startsWith('/')) path = path.slice(1)
 
-  if (!path.endsWith('.md'))
-    path += '.md'
+  if (!path.endsWith('.md')) path += '.md'
 
   const fullPath = resolve(MARKDOWN_ROOT_PATH, path)
   const p = parse(relative(MARKDOWN_ROOT_PATH, fullPath))

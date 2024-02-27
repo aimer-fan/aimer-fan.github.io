@@ -12,28 +12,28 @@
 
 type Splitter = '-' | '/'
 
-type Num = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
+type Num = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 
 type Num2 = Num | 0
 
-type YY = `19${Num2}${Num2}` | `20${Num2}${Num2}`;
+type YY = `19${Num2}${Num2}` | `20${Num2}${Num2}`
 
-type MM = `0${Num}` | `1${0 | 1 | 2}`;
+type MM = `0${Num}` | `1${0 | 1 | 2}`
 
-type DD = `${0}${Num}` | `${1 | 2}${Num2}` | `3${0 | 1}`;
+type DD = `${0}${Num}` | `${1 | 2}${Num2}` | `3${0 | 1}`
 
 type GenStr<Type extends string> =
   Type extends 'YY'
     ? YY
     : Type extends 'MM'
       ? MM
-      : DD;
+      : DD
 
 // eslint-disable-next-line max-len
 type FormatDate<Pattern extends string> = Pattern extends `${infer A}${Splitter}${infer B}${Splitter}${infer C}`
-    ? Pattern extends `${A}${infer Sp}${B}${infer _}${C}`
-        ? `${GenStr<A>}${Sp}${GenStr<B>}${Sp}${GenStr<C>}`
-        : never
+  ? Pattern extends `${A}${infer Sp}${B}${infer _}${C}`
+    ? `${GenStr<A>}${Sp}${GenStr<B>}${Sp}${GenStr<C>}`
     : never
+  : never
 
 export type FormatedDate = FormatDate<'YY/DD/MM'>
