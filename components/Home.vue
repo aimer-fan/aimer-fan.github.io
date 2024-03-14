@@ -16,7 +16,9 @@ const link = getHomeLinkByPrefix(sidebar, '/web/')
     </a>
     <h1 class="title">AimerFanのBlog</h1>
     <p class="sub-title">故不积跬步，无以至千里；不积小流，无以成江海。</p>
-    <Button class="start-btn" :href="link">Get Started</Button>
+    <a class="mt4em" :href="link">
+      <Button>Get Started</Button>
+    </a>
   </div>
 </template>
 
