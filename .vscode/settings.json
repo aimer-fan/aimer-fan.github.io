@@ -6,5 +6,6 @@
     "qiankun",
     "unocss",
     "vitepress"
-  ]
+  ],
+  "eslint.experimental.useFlatConfig": true
 }

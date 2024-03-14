@@ -6,6 +6,10 @@ export default defineConfig({
       md: '768px',
       lg: '960px',
     },
+    colors: {
+      //
+      alt: 'var(--vp-c-bg-alt)',
+    },
   },
   presets: [
     presetAttributify(),

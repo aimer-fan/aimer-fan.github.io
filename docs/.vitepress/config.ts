@@ -37,8 +37,8 @@ export default defineConfig({
   vue: {
     template: {
       compilerOptions: {
-        //
-        isCustomElement: (tag) => customElements.includes(tag),
+        // ignore mathjax3 custom elements
+        isCustomElement: tag => customElements.includes(tag),
       },
     },
   },

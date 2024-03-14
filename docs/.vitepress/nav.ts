@@ -25,6 +25,16 @@ const nav: DefaultTheme.NavItem[] = [
     activeMatch: '/notes/',
   },
   {
+    text: '在线工具',
+    // activeMatch: '/tools/',
+    items: [
+      {
+        text: '预览帧动画',
+        link: '/tools/frame-animation',
+      },
+    ],
+  },
+  {
     text: '其他',
     link: getHomeLinkByPrefix(sidebar, '/others/'),
     activeMatch: '/others/',

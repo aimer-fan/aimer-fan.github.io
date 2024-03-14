@@ -1,12 +1,24 @@
+<script lang="ts" setup>
+withDefaults(
+  defineProps<{
+    mode?: 'primary' | 'dashed';
+    shape?: 'round' | 'square';
+  }>(),
+  {
+    mode: 'primary',
+    shape: 'round',
+  },
+)
+</script>
+
 <template>
-  <a class="btn" v-bind="$attrs">
+  <button class="btn" :class="`shape-${shape} mode-${mode}`" v-bind="$attrs">
     <slot></slot>
-  </a>
+  </button>
 </template>
 
-<style scoped>
+<style scoped lang="less">
 .btn {
-  border-radius: 20px;
   padding: 0 20px;
   line-height: 38px;
   font-size: 14px;
@@ -16,11 +28,27 @@
   font-weight: 600;
   white-space: nowrap;
   transition: color 0.25s, border-color 0.25s, background-color 0.25s;
-  border-color: var(--vp-button-brand-border);
-  color: var(--vp-button-brand-text);
-  background-color: var(--vp-button-brand-bg);
   cursor: pointer;
   user-select: none;
   text-decoration: none;
+
+  &.mode-primary {
+    border-color: var(--vp-button-brand-border);
+    color: var(--vp-button-brand-text);
+    background-color: var(--vp-button-brand-bg);
+  }
+  &.mode-dashed {
+    color: var(--vp-c-text-1);
+    border-width: 1px;
+    border-style: dashed;
+    border-color: var(--vp-button-brand-bg);
+  }
+
+  &.shape-square {
+    border-radius: 8px;
+  }
+  &.shape-round {
+    border-radius: 20px;;
+  }
 }
 </style>

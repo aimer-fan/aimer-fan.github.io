@@ -3,18 +3,16 @@
   "include": [
     "**/*ts",
     "docs/.vitepress/**/*.ts",
-    "docs/.vitepress/**/*.vue",
-    "components/**/*.vue",
-    "components/**/*.ts",
+    "docs/**/*.vue",
+    "./components/**/*.vue",
+    "./components/**/*.ts",
     "types/**/*.ts",
     "uno.config.ts"
   ],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./*"
-      ]
+      "@/*": ["./*"]
     }
   }
 }
