@@ -22,7 +22,7 @@
     "markdown-it-mathjax3": "^4.3.2",
     "typescript": "^5.3.3",
     "unocss": "^0.58.5",
-    "vitepress": "1.0.0-rc.29"
+    "vitepress": "1.0.0-rc.45"
   },
   "dependencies": {
     "monaco-editor": "^0.45.0",
