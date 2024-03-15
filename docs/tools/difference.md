@@ -6,4 +6,4 @@ layout: blank
   import Difference from '../../pages/Difference.vue'
 </script>
 
-<Difference />
+<Difference class="p4" />

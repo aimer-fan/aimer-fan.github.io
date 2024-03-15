@@ -1,7 +1,11 @@
 <script setup lang="ts">
 import ButtonGroup from '@/components/Form/components/ButtonGroup.vue'
-import MonacoDiffEditor from '@/components/MonacoEditor/MonacoDiffEditor.vue'
-import { ref } from 'vue'
+import { ref, defineAsyncComponent } from 'vue'
+import { inBrowser } from 'vitepress'
+
+const MonacoDiffEditor = inBrowser
+  ? defineAsyncComponent(() => import('@/components/MonacoEditor/MonacoDiffEditor.vue'))
+  : () => null
 
 const languageList = ['plaintext', 'json', 'javascript', 'typescript']
 const language = ref(languageList[0])
@@ -12,6 +16,11 @@ const language = ref(languageList[0])
     <div class="px4 py2">
       <ButtonGroup v-model="language" :data-source="languageList" />
     </div>
-    <MonacoDiffEditor class="flex-1" :lang="language" />
+    <ClientOnly>
+      <Suspense>
+        <template #fallback>Loading...</template>
+        <MonacoDiffEditor class="flex-1" :lang="language" />
+      </Suspense>
+    </ClientOnly>
   </div>
 </template>
