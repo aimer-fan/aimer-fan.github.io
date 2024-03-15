@@ -6,12 +6,8 @@
 
 <script lang="ts" setup>
 import type * as Monaco from 'monaco-editor'
-import * as monaco from 'monaco-editor'
 import { computed, onMounted, onUnmounted, ref, shallowRef, watch } from 'vue'
-import themeDark from './theme/vitepress-dark'
-import themeLight from './theme/vitepress-light'
-import { useData } from 'vitepress'
-import './worker.js'
+import { useMonaco } from './useMonaco'
 
 interface Props {
 
@@ -51,16 +47,7 @@ let editor: Monaco.editor.IStandaloneCodeEditor
 let model: Monaco.editor.ITextModel
 const editorRef = shallowRef<Monaco.editor.IStandaloneCodeEditor>()
 
-monaco.editor.defineTheme('vitepress-dark', themeDark)
-monaco.editor.defineTheme('vitepress-light', themeLight)
-
-const { isDark } = useData()
-
-const defaultOptions: Monaco.editor.IStandaloneEditorConstructionOptions = {
-  automaticLayout: true,
-  fontSize: 14,
-  theme: isDark.value ? 'vitepress-dark' : 'vitepress-light',
-}
+const { monaco, defaultOptions, isDark } = useMonaco()
 
 const { assign } = Object
 

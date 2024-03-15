@@ -32,6 +32,10 @@ const nav: DefaultTheme.NavItem[] = [
         text: '预览帧动画',
         link: '/tools/frame-animation',
       },
+      {
+        text: '代码对比',
+        link: '/tools/difference',
+      },
     ],
   },
   {
