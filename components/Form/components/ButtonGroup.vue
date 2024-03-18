@@ -22,6 +22,7 @@ function getLabel (data: DataSourceItem) {
     <Button
       v-for="data in dataSource"
       :key="getKey(data)"
+      size="small"
       shape="square"
       type="button"
       :mode="modelValue === data ? 'primary' : 'dashed'"

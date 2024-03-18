@@ -1,10 +1,12 @@
 <script lang="ts" setup>
 withDefaults(
   defineProps<{
+    size?: 'small' | 'medium';
     mode?: 'primary' | 'dashed';
     shape?: 'round' | 'square';
   }>(),
   {
+    size: 'medium',
     mode: 'primary',
     shape: 'round',
   },
@@ -12,7 +14,7 @@ withDefaults(
 </script>
 
 <template>
-  <button class="btn" :class="`shape-${shape} mode-${mode}`" v-bind="$attrs">
+  <button class="btn" :class="`shape-${shape} mode-${mode} ${size}`" v-bind="$attrs">
     <slot></slot>
   </button>
 </template>
@@ -49,6 +51,11 @@ withDefaults(
   }
   &.shape-round {
     border-radius: 20px;;
+  }
+
+  &.small {
+    padding: 0 10px;
+    line-height: 30px;
   }
 }
 </style>
