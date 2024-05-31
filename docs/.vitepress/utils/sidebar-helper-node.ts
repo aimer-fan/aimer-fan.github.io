@@ -1,6 +1,7 @@
-import { relative, resolve, parse } from 'node:path'
 import type { DefaultTheme } from 'vitepress'
 import { readFileSync } from 'node:fs'
+import { posix, resolve } from 'node:path'
+
 import { MARKDOWN_ROOT_PATH } from './constants'
 
 /**
@@ -11,13 +12,17 @@ export function genSidebarItemByPath (path: string): DefaultTheme.SidebarItem {
 
   if (!path.endsWith('.md')) path += '.md'
 
+  return {
+    link: getPosixLinkPath(path),
+    text: getMarkdownTitle(resolve(MARKDOWN_ROOT_PATH, path)),
+  }
+}
+
+function getPosixLinkPath (path: string) {
+  const { relative, resolve, parse } = posix
   const fullPath = resolve(MARKDOWN_ROOT_PATH, path)
   const p = parse(relative(MARKDOWN_ROOT_PATH, fullPath))
-  const link = resolve('/', p.dir, p.name)
-  return {
-    link,
-    text: getMarkdownTitle(fullPath),
-  }
+  return resolve('/', p.dir, p.name)
 }
 
 function getMarkdownTitle (path: string) {

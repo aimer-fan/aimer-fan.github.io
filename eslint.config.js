@@ -1,3 +1,7 @@
 import { defineConfig } from '@aimerfan/eslint-config'
 
-export default defineConfig()
+export default defineConfig({
+  overrides: [
+    { ignores: ['**/cache/**'] },
+  ],
+})
