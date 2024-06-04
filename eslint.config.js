@@ -2,6 +2,6 @@ import { defineConfig } from '@aimerfan/eslint-config'
 
 export default defineConfig({
   overrides: [
-    { ignores: ['**/cache/**'] },
+    { ignores: ['**/cache/**', '**/dist/**'] },
   ],
 })
