@@ -6,4 +6,4 @@ layout: blank
   import FrameAnimation from '../../pages/FrameAnimation.vue'
 </script>
 
-<FrameAnimation class="p4" />
+<FrameAnimation class="p4 blank-main" />

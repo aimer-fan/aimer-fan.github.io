@@ -11,6 +11,7 @@ export default defineConfig({
       alt: 'var(--vp-c-bg-alt)',
     },
   },
+  shortcuts: { 'blank-main': 'w-1400px mx-auto' },
   presets: [
     presetAttributify(),
     presetUno(),
