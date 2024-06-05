@@ -29,7 +29,9 @@
     "vitest": "^1.6.0"
   },
   "dependencies": {
+    "exceljs": "^4.4.0",
     "monaco-editor": "^0.45.0",
-    "vue": "^3.4.20"
+    "vue": "^3.4.20",
+    "xlsx": "^0.18.5"
   }
 }

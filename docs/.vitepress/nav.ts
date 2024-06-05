@@ -36,6 +36,10 @@ const nav: DefaultTheme.NavItem[] = [
         text: '代码对比',
         link: '/tools/difference',
       },
+      {
+        text: 'Xlsx解析',
+        link: '/tools/xlsx-parser',
+      },
     ],
   },
   {
