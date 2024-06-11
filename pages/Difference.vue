@@ -7,7 +7,7 @@ const MonacoDiffEditor = inBrowser
   ? defineAsyncComponent(() => import('@/components/MonacoEditor/MonacoDiffEditor.vue'))
   : () => null
 
-const languageList = ['plaintext', 'json', 'javascript', 'typescript']
+const languageList = ['plaintext', 'json', 'javascript', 'typescript', 'xml', 'html', 'css']
 const language = ref(languageList[0])
 </script>
 
