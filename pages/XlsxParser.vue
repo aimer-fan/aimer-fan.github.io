@@ -139,7 +139,7 @@ async function downloadTemplate () {
             v-model="resultCode"
             class="w-full h-full"
             lang="json"
-            :options="{ minimap: { enabled: false } }"
+            :options="{ minimap: { enabled: false }, lineNumbers: 'off' }"
           />
         </div>
       </div>
