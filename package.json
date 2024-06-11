@@ -4,7 +4,7 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "docs:dev": "vitepress dev docs --port 4000",
+    "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
     "test:unit:watch": "vitest",
@@ -16,7 +16,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@aimerfan/eslint-config": "^0.2.1",
+    "@aimerfan/eslint-config": "^0.2.2",
     "@types/node": "^20.11.20",
     "@vue/tsconfig": "^0.4.0",
     "eslint": "^8.57.0",

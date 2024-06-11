@@ -22,8 +22,8 @@ importers:
         version: 0.18.5
     devDependencies:
       '@aimerfan/eslint-config':
-        specifier: ^0.2.1
-        version: 0.2.1(eslint@8.57.0)(typescript@5.3.3)
+        specifier: ^0.2.2
+        version: 0.2.2(eslint@8.57.0)(typescript@5.3.3)
       '@types/node':
         specifier: ^20.11.20
         version: 20.11.20
@@ -60,8 +60,8 @@ importers:
 
 packages:
 
-  '@aimerfan/eslint-config@0.2.1':
-    resolution: {integrity: sha512-0jLaIJvu7YtSOq61Jf9bvOkIx3mVX5DvGfsknuJmAPhcjrG9QiggVK2wPAvX2SyFUb3BI0V8f96HkXJt7reFcQ==}
+  '@aimerfan/eslint-config@0.2.2':
+    resolution: {integrity: sha512-BWeidIcG2SHAaZWLmX/7X9NmHC1iBiHcMlEt/6VkcNanQCAjjC/EoHcHGJopO7Mr5DgTgqXWK4R8E/Kbr5Rz2A==}
     peerDependencies:
       eslint: '>=8.56.0 || 9.x'
 
@@ -2432,7 +2432,7 @@ packages:
 
 snapshots:
 
-  '@aimerfan/eslint-config@0.2.1(eslint@8.57.0)(typescript@5.3.3)':
+  '@aimerfan/eslint-config@0.2.2(eslint@8.57.0)(typescript@5.3.3)':
     dependencies:
       '@eslint/js': 8.57.0
       '@stylistic/eslint-plugin': 2.1.0(eslint@8.57.0)(typescript@5.3.3)
