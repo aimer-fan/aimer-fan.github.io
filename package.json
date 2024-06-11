@@ -22,6 +22,7 @@
     "eslint": "^8.57.0",
     "husky": "^8.0.3",
     "less": "^4.2.0",
+    "lint-staged": "^15.2.5",
     "markdown-it-mathjax3": "^4.3.2",
     "typescript": "^5.3.3",
     "unocss": "^0.58.5",
@@ -34,5 +35,8 @@
     "monaco-editor": "^0.45.0",
     "vue": "^3.4.20",
     "xlsx": "^0.18.5"
+  },
+  "lint-staged": {
+    "*.{js?(x),ts?(x),vue,json}": "eslint"
   }
 }
