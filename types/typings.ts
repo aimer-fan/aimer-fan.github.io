@@ -1,3 +1,5 @@
+/// <reference types="vite/client" />
+
 declare global {
   export interface Document {
     startViewTransition: (cb: () => void) => {

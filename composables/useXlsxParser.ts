@@ -1,56 +1,28 @@
 /* eslint-disable ts/no-explicit-any */
-import { read, utils, type CellObject } from 'xlsx'
 import ExcelJS from 'exceljs'
+import { type CellObject, read, utils } from 'xlsx'
 
-export interface CellAddress {
-  c: number;
-  r: number;
-}
-export interface SheetSchema {
+export interface ErrorContext {
+  pos: CellAddress;
+  encodePos: string;
   sheetName: string;
-  columns: XlsxColumn[];
+  value?: any;
+  rowData?: any;
 }
 
-interface XlsxColumn {
-  field: string;
-  title: string;
-  component: XlsxComponent;
-  rules?: XlsxRule[];
-  // eslint-disable-next-line ts/no-explicit-any
-  [x: string]: any;
+interface Options {
+  enableChainFields?: boolean;
+  errorHandler?: (message: string, context?: ErrorContext) => void;
 }
 
-type XlsxComponetName = 'input' | 'select'
-type XlsxComponent<T = XlsxComponetName> = T extends 'input'
-  ? { type: T }
-  : T extends 'select'
-    ? { type: T; options: { label: string; value: string | number }[] }
-    : never
+export function useXlsxParser (schemas: SheetSchema[], options?: Options) {
+  const { enableChainFields = true, errorHandler = () => {} } = options || {}
 
-interface XlsxRule {
-  required?: boolean;
-  message?: string;
-  validator?: (value: any, item: any) => string | undefined | void;
-}
-
-export function decodeCell (cstr: string): CellAddress {
-  var R = 0, C = 0
-  for (var i = 0; i < cstr.length; ++i) {
-    var cc = cstr.charCodeAt(i)
-    if (cc >= 48 && cc <= 57) R = 10 * R + (cc - 48)
-    else if (cc >= 65 && cc <= 90) C = 26 * C + (cc - 64)
+  function handleError (message: string, _context?: ErrorContext): never {
+    errorHandler(message, _context)
+    throw new Error(message)
   }
-  return { c: C - 1, r: R - 1 }
-}
 
-export function encodeCell (cell: CellAddress): string {
-  var col = cell.c + 1
-  var s = ''
-  for (; col; col = (col - 1) / 26 | 0) s = String.fromCharCode((col - 1) % 26 + 65) + s
-  return s + (cell.r + 1)
-}
-
-export function useXlsxParser (schemas: SheetSchema[]) {
   async function getTemplate () {
     const workbook = new ExcelJS.Workbook()
 
@@ -85,7 +57,6 @@ export function useXlsxParser (schemas: SheetSchema[]) {
         let { title } = col
         let hasRequired = false
         if (col.rules?.find(rule => rule.required)) {
-          title = `*${title}`
           hasRequired = true
         }
         return {
@@ -98,7 +69,7 @@ export function useXlsxParser (schemas: SheetSchema[]) {
       // if column is required, set header to bold
       columns.forEach((column, index) => {
         if (column.rules?.find(rule => rule.required)) {
-          worksheet.getCell(encodeCell({ c: index, r: 1 })).style = { font: { bold: true } }
+          worksheet.getCell(utils.encode_cell({ c: index, r: 0 })).style = { font: { bold: true } }
         }
       })
 
@@ -107,7 +78,7 @@ export function useXlsxParser (schemas: SheetSchema[]) {
       columns.forEach((column, index) => {
         if (column.component.type === 'select') {
           for (let i = 1; i <= DATA_VALIDATION_ROW_LENGTH; i++) {
-            const cellCode = encodeCell({ c: index, r: i })
+            const cellCode = utils.encode_cell({ c: index, r: i })
             worksheet.getCell(cellCode).dataValidation = {
               type: 'list',
               allowBlank: true,
@@ -119,18 +90,7 @@ export function useXlsxParser (schemas: SheetSchema[]) {
     })
 
     const buffer = await workbook.xlsx.writeBuffer()
-    const blob = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' })
-    const url = URL.createObjectURL(blob)
-
-    const a = document.createElement('a')
-    a.href = url
-    a.download = 'template.xlsx'
-    a.click()
-  }
-
-  function handleError (message: string, _context?: any): never {
-    console.error(message, _context)
-    throw new Error(message)
+    return new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' })
   }
 
   async function parse (file: File) {
@@ -139,8 +99,7 @@ export function useXlsxParser (schemas: SheetSchema[]) {
     const workbook = read(data)
     const { Sheets } = workbook
 
-    const d = {}
-
+    const d = {} as any
     for (const [sheetName, sheet] of Object.entries(Sheets)) {
       const schema = schemas.find((schema) => schema.sheetName === sheetName)
       if (!schema) {
@@ -150,15 +109,34 @@ export function useXlsxParser (schemas: SheetSchema[]) {
       const range = utils.decode_range(sheet['!ref']!)
       range.s.r++
 
-      const getValue = (column: XlsxColumn, value: CellObject['v']) => {
-        const { component } = column
+      const getValue = (column: XlsxColumn, value: CellObject['v'], context?: ErrorContext) => {
+        const { component, type } = column
+
+        // 如果有数据类型，这里做默认转化
+        if (type) {
+          if (type === 'string') {
+            value = value?.toString()
+          } else if (type === 'number') {
+            const _v = Number(value)
+            if (Number.isNaN(_v)) {
+              handleError('数据格式错误', context)
+            }
+            value = Number.isNaN(_v) ? undefined : _v
+          }
+        }
         switch (component.type) {
           case 'input':
+            if (typeof value === 'string') {
+              if (value.trim() === '') {
+                return undefined
+              }
+              return value.trim()
+            }
             return value
           case 'select':
             return component.options.find((option) => {
               if (typeof value === 'number') {
-                return option.value.toString() === value.toString()
+                return option.label.toString() === value.toString()
               }
               return option.label === value
             })?.value
@@ -166,37 +144,57 @@ export function useXlsxParser (schemas: SheetSchema[]) {
             return value
         }
       }
-
       const result = []
       for (let row = range.s.r; row <= range.e.r; row++) {
         const item = {} as any
         for (let col = range.s.c; col <= range.e.c; col++) {
-          const pos = utils.encode_cell({ c: col, r: row })
+          const pos = utils.encode_cell({
+            c: col,
+            r: row,
+          })
           const cell: CellObject = sheet[pos]
           const column = schema.columns[col - range.s.c]
 
-          const value = cell ? cell.v : ''
+          if (!cell && column.defaultValue === undefined) continue
 
           const { field } = column
 
-          if (field.indexOf('.') !== -1) {
+          const rawValue = cell?.v
+
+          const context = {
+            pos: { c: col, r: row },
+            encodePos: utils.encode_cell({
+              c: col,
+              r: row,
+            }),
+            sheetName: schema.sheetName,
+            rawValue,
+            rowData: undefined,
+          }
+          const v = getValue(column, rawValue, context) ?? column.defaultValue
+
+          if (v === undefined) continue
+
+          if (enableChainFields && field.indexOf('.') !== -1) {
             const chains = field.split('.')
             chains.reduce((prev, curr, currentIndex) => {
               if (currentIndex === chains.length - 1) {
-                prev[curr] = getValue(column, value)
+                prev[curr] = v
                 return prev
-              } else {
-                if (!prev[curr]) {
-                  prev[curr] = {}
-                }
-                return prev[curr]
               }
+              if (!prev[curr]) {
+                prev[curr] = {}
+              }
+              return prev[curr]
             }, item)
           } else {
-            item[field] = getValue(column, value)
+            item[field] = v
           }
         }
-        result.push(item)
+
+        if (Object.keys(item).length) {
+          result.push(item)
+        }
       }
 
       Object.assign(d, { [sheetName]: result })
@@ -204,34 +202,55 @@ export function useXlsxParser (schemas: SheetSchema[]) {
     return d
   }
 
-  function validate (data: Record<string, any[]>) {
-    let valid = true
+  function getValueByChain (obj: any, chain: string) {
+    let value = obj
+    const chains = chain.split('.')
+    for (const chain of chains) {
+      value = value?.[chain]
+      if (value === undefined) {
+        return undefined
+      }
+    }
+    return value
+  }
 
+  function isEmpty (value: string | number | undefined) {
+    if (value === undefined) {
+      return true
+    }
+
+    // 空字符串认定为空
+    if (typeof value === 'string' && value.trim() === '') {
+      return true
+    }
+
+    return false
+  }
+
+  function validate (data: Record<string, any[]>) {
     try {
       for (const schema of schemas) {
-        if (!valid) return
-
         const dataSource = data[schema.sheetName]
-
         if (!dataSource) {
           handleError(`找不到对应的 sheet：${schema.sheetName}`)
         }
 
         for (let dataIndex = 0; dataIndex < dataSource.length; dataIndex++) {
-          if (!valid) return
-
           const item = dataSource[dataIndex]
 
           for (let columnIndex = 0; columnIndex < schema.columns.length; columnIndex++) {
-            if (!valid) return
-
             const column = schema.columns[columnIndex]
 
             const { field, rules } = column
-            const value = field.split('.').reduce((prev, curr) => prev[curr], item)
+            const value = enableChainFields
+              ? getValueByChain(item, field)
+              : item[field]
 
-            const getContext = () => {
-              const pos = { c: columnIndex, r: dataIndex + 1 }
+            const getContext = (): ErrorContext => {
+              const pos = {
+                c: columnIndex,
+                r: dataIndex + 1,
+              }
               return {
                 pos,
                 encodePos: utils.encode_cell(pos),
@@ -240,11 +259,11 @@ export function useXlsxParser (schemas: SheetSchema[]) {
                 rowData: item,
               }
             }
-
             if (rules) {
               for (const rule of rules) {
-                if (rule.required && value === undefined) {
-                  handleError(`${field} is required`, getContext())
+                if (rule.required && isEmpty(value)) {
+                  const message = rule.message ?? `${field} is required`
+                  handleError(message, getContext())
                 } else if (rule.validator) {
                   const result = rule.validator(value, item)
                   if (typeof result === 'string') {
@@ -256,11 +275,16 @@ export function useXlsxParser (schemas: SheetSchema[]) {
           }
         }
       }
-      return valid
-    } catch {
-      return valid
+      return true
+    } catch (e) {
+      console.error(e)
+      return false
     }
   }
 
-  return { parse, getTemplate, validate }
+  return {
+    getTemplate,
+    parse,
+    validate,
+  }
 }
