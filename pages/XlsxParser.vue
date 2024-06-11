@@ -64,7 +64,6 @@ const code = ref('export const schemas: SheetSchema[] = ' + defaultSchema)
 if (inBrowser) {
   const { useMonaco } = await import('@/components/MonacoEditor/useMonaco')
   const { monaco } = useMonaco()
-  console.log('import -> monaco', monaco)
   monaco.languages.typescript.typescriptDefaults.addExtraLib(xlsxParserLib, 'ts:filename/xlsxParser.d.ts')
 }
 
