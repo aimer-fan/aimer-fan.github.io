@@ -135,7 +135,12 @@ async function downloadTemplate () {
         <label class="text-sm font-bold">Result</label>
 
         <div class="font-mono flex-1" b="~ solid [var(--vp-c-gutter)]">
-          <textarea v-model="resultCode" class="w-full h-full"></textarea>
+          <MonacoEditor
+            v-model="resultCode"
+            class="w-full h-full"
+            lang="json"
+            :options="{ minimap: { enabled: false } }"
+          />
         </div>
       </div>
     </div>

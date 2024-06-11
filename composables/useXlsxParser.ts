@@ -112,7 +112,7 @@ export function useXlsxParser (schemas: SheetSchema[], options?: Options) {
       const getValue = (column: XlsxColumn, value: CellObject['v'], context?: ErrorContext) => {
         const { component, type } = column
 
-        // 如果有数据类型，这里做默认转化
+        // if has data type, do default conversion
         if (type) {
           if (type === 'string') {
             value = value?.toString()
@@ -146,12 +146,20 @@ export function useXlsxParser (schemas: SheetSchema[], options?: Options) {
       }
       const result = []
       for (let row = range.s.r; row <= range.e.r; row++) {
+        // if current line is empty, skip it
+        const rowKeys = []
+        for (let col = range.s.c; col <= range.e.c; col++) {
+          const pos = utils.encode_cell({ c: col, r: row })
+          rowKeys.push(pos)
+        }
+        if (rowKeys.every(key => sheet[key] === undefined)) {
+          continue
+        }
+
+        // create a new item and push it into result
         const item = {} as any
         for (let col = range.s.c; col <= range.e.c; col++) {
-          const pos = utils.encode_cell({
-            c: col,
-            r: row,
-          })
+          const pos = utils.encode_cell({ c: col, r: row })
           const cell: CellObject = sheet[pos]
           const column = schema.columns[col - range.s.c]
 
