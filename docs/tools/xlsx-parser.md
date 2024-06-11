@@ -6,4 +6,9 @@ layout: blank
   import XlsxParser from '../../pages/XlsxParser.vue'
 </script>
 
-<XlsxParser class="p4" />
+<ClientOnly>
+  <Suspense>
+    <template #fallback>Loading...</template>
+    <XlsxParser class="p4" />
+  </Suspense>
+</ClientOnly>

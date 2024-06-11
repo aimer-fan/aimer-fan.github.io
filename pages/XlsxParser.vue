@@ -1,11 +1,14 @@
 <script setup lang="ts">
 import Button from '@/components/Button.vue'
-import MonacoEditor from '@/components/MonacoEditor/MonacoEditor.vue'
 import { useXlsxParser, type ErrorContext } from '@/composables/useXlsxParser'
-import { ref } from 'vue'
-import { useMonaco } from '@/components/MonacoEditor/useMonaco'
+import { defineAsyncComponent, ref } from 'vue'
 import xlsxParserLib from '@/types/xlsxParser.d.ts?raw'
 import * as ts from 'typescript'
+import { inBrowser } from 'vitepress'
+
+const MonacoEditor = inBrowser
+  ? defineAsyncComponent(() => import('@/components/MonacoEditor/MonacoEditor.vue'))
+  : () => null
 
 const defaultSchema: string = /* typescript */`[
   {
@@ -58,8 +61,12 @@ const defaultSchema: string = /* typescript */`[
 ]`
 
 const code = ref('export const schemas: SheetSchema[] = ' + defaultSchema)
-const { monaco } = useMonaco()
-monaco.languages.typescript.typescriptDefaults.addExtraLib(xlsxParserLib, 'ts:filename/xlsxParser.d.ts')
+if (inBrowser) {
+  const { useMonaco } = await import('@/components/MonacoEditor/useMonaco')
+  const { monaco } = useMonaco()
+  console.log('import -> monaco', monaco)
+  monaco.languages.typescript.typescriptDefaults.addExtraLib(xlsxParserLib, 'ts:filename/xlsxParser.d.ts')
+}
 
 const resultCode = ref('')
 
