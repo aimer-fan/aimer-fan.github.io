@@ -40,10 +40,6 @@ const nav: DefaultTheme.NavItem[] = [
         text: 'Xlsx解析',
         link: '/tools/xlsx-parser',
       },
-      {
-        text: '性能检测',
-        link: '/tools/stats',
-      },
     ],
   },
   {
