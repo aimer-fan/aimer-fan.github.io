@@ -3,9 +3,7 @@ import Button from '@/components/Button.vue'
 
 type DataSourceItem = string | number | { label: string; [key: string]: string | number }
 
-defineProps<{
-  dataSource: DataSourceItem[];
-}>()
+defineProps<{ dataSource: DataSourceItem[] }>()
 const modelValue = defineModel<DataSourceItem>()
 
 function getKey (data: DataSourceItem) {

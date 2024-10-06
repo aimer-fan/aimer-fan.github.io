@@ -29,7 +29,6 @@ type GenStr<Type extends string> =
       ? MM
       : DD
 
-// eslint-disable-next-line max-len
 type FormatDate<Pattern extends string> = Pattern extends `${infer A}${Splitter}${infer B}${Splitter}${infer C}`
   ? Pattern extends `${A}${infer Sp}${B}${infer _}${C}`
     ? `${GenStr<A>}${Sp}${GenStr<B>}${Sp}${GenStr<C>}`
