@@ -4,6 +4,7 @@ import { genSidebarItemByPath } from './utils/sidebar-helper-node'
 const sidebar: DefaultTheme.Sidebar = {
 
   '/web/': [
+    '/web/package-manager',
     '/web/css',
     '/web/manual-cpu-throttling-rate',
     '/web/view-transitions',
@@ -36,7 +37,25 @@ const sidebar: DefaultTheme.Sidebar = {
     '/bash/prompt',
   ].map(genSidebarItemByPath),
 
+  '/sql/': [
+    '/sql/01-abstract',
+    '/sql/02-grammar',
+    '/sql/03-select',
+    '/sql/04-operator',
+    '/sql/05-order-and-page',
+    '/sql/06-multiple-table',
+    '/sql/07-inline-function',
+    '/sql/08-group-function',
+    '/sql/09-sub-query',
+    '/sql/10-manage-table',
+    '/sql/11-curd',
+    '/sql/12-data-type',
+    '/sql/13-constraint',
+    '/sql/14-view',
+  ].map(genSidebarItemByPath),
+
   '/nginx/': [
+    '/nginx/underhood',
     '/nginx/location',
     '/nginx/proxy-pass',
   ].map(genSidebarItemByPath),
@@ -49,6 +68,10 @@ const sidebar: DefaultTheme.Sidebar = {
   ].map(genSidebarItemByPath),
 
   '/others/': [
+    '/others/acme.sh',
+    '/others/v2ray',
+    '/others/validate-input',
+    '/others/vim',
     '/others/links',
     '/others/vscode-settings',
   ].map(genSidebarItemByPath),

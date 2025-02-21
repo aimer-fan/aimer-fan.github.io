@@ -15,6 +15,11 @@ const nav: DefaultTheme.NavItem[] = [
     activeMatch: '/bash/',
   },
   {
+    text: 'SQL',
+    link: getHomeLinkByPrefix(sidebar, '/sql/'),
+    activeMatch: '/sql/',
+  },
+  {
     text: 'Nginx',
     link: getHomeLinkByPrefix(sidebar, '/nginx/'),
     activeMatch: '/nginx/',
