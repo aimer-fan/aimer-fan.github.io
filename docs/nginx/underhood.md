@@ -381,9 +381,9 @@ http {
 
 ## Nginx 原理
 
-![原理图](./img/nginx/原理图.png)
+![原理图](./img/原理图.png)
 
-![工作模式](./img/nginx/工作模式.png)
+![工作模式](./img/工作模式.png)
 
 1. 一个 master 和多个 worker 有好处
 
