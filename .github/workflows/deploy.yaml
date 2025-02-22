@@ -50,9 +50,8 @@ jobs:
           pnpm docs:build
           touch docs/.vitepress/dist/.nojekyll
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: github-pages
           path: docs/.vitepress/dist
 
   # Deployment job
