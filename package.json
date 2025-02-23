@@ -16,6 +16,8 @@
   "license": "ISC",
   "author": "",
   "dependencies": {
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
     "exceljs": "^4.4.0",
     "monaco-editor": "^0.45.0",
     "stats.js": "^0.17.0",

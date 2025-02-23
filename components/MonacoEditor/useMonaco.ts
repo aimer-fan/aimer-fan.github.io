@@ -9,6 +9,36 @@ export function useMonaco () {
   monaco.editor.defineTheme('vitepress-dark', themeDark)
   monaco.editor.defineTheme('vitepress-light', themeLight)
 
+  function supportJsx () {
+    monaco.languages.typescript.typescriptDefaults.setCompilerOptions({
+      noEmit: true,
+      jsx: monaco.languages.typescript.JsxEmit.Preserve,
+    })
+
+    monaco.languages.typescript.typescriptDefaults.setDiagnosticsOptions({
+      noSemanticValidation: false,
+      noSyntaxValidation: false,
+    })
+
+    const definitions: Record<string, string> = import.meta.glob(
+      [
+        '../../node_modules/@types/react/*',
+        '../../node_modules/@types/react-dom/*',
+      ],
+      {
+        query: '?raw',
+        import: 'default',
+        eager: true,
+      },
+    )
+    for (const [key, value] of Object.entries(definitions)) {
+      const path = `file:///node_modules/@types/${key.replace('../../node_modules/@types/', '')}`
+      monaco.languages.typescript.typescriptDefaults.addExtraLib(value, path)
+    }
+  }
+
+  supportJsx()
+
   const { isDark } = useData()
 
   const defaultOptions: Monaco.editor.IStandaloneEditorConstructionOptions = {

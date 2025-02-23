@@ -60,13 +60,21 @@ watch(() => [props.original, props.modelValue], () => {
   }
 })
 
+const getUri = (original?: boolean) => {
+  const map: Record<string, string> = {
+    typescript: 'tsx',
+    javascript: 'jsx',
+  }
+  if (!map[props.lang]) return
+  return monaco.Uri.parse((original ? 'original.' : 'modified.') + map[props.lang])
+}
 watch(() => props.lang, () => {
   const originalValue = originalModel?.getValue() || props.original
   const modifiedValue = modifiedModel?.getValue() || props.modelValue
   if (originalModel) { originalModel.dispose() }
   if (modifiedModel) { modifiedModel.dispose() }
-  originalModel = monaco.editor.createModel(originalValue, props.lang)
-  modifiedModel = monaco.editor.createModel(modifiedValue, props.lang)
+  originalModel = monaco.editor.createModel(originalValue, props.lang, getUri(true))
+  modifiedModel = monaco.editor.createModel(modifiedValue, props.lang, getUri())
   editor.setModel({
     original: originalModel,
     modified: modifiedModel,
@@ -91,8 +99,8 @@ watch(editorElement, (newValue, oldValue) => {
   if (!editorElement.value || oldValue) { return }
   editor = monaco.editor.createDiffEditor(editorElement.value!, assign({}, props.options, defaultOptions))
   editorRef.value = editor
-  originalModel = monaco.editor.createModel(props.original, props.lang)
-  modifiedModel = monaco.editor.createModel(props.modelValue, props.lang)
+  originalModel = monaco.editor.createModel(props.original, props.lang, getUri(true))
+  modifiedModel = monaco.editor.createModel(props.modelValue, props.lang, getUri())
   editor.setModel({
     original: originalModel,
     modified: modifiedModel,
