@@ -128,7 +128,7 @@ async function downloadTemplate () {
         type="file"
         name=""
         @change="uploadTemplate"
-      >
+      />
       <Button size="small" shape="square" @click="downloadTemplate">Download</Button>
 
       <div class="w-full flex-1 flex flex-col gap4">

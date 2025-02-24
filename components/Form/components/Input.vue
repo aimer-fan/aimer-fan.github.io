@@ -18,7 +18,7 @@ const modelValue = defineModel<string | number | undefined>()
       class="py2 px-4 flex-1 text-base"
       @change.stop
       @input.stop
-    >
+    />
     <span v-if="suffix" class="mr4 ml--2">{{ suffix }}</span>
   </div>
 </template>
