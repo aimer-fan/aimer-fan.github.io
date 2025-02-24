@@ -9,7 +9,7 @@ export function useMonaco () {
   monaco.editor.defineTheme('vitepress-dark', themeDark)
   monaco.editor.defineTheme('vitepress-light', themeLight)
 
-  function supportJsx () {
+  function supportTSX () {
     monaco.languages.typescript.typescriptDefaults.setCompilerOptions({
       noEmit: true,
       jsx: monaco.languages.typescript.JsxEmit.Preserve,
@@ -37,8 +37,6 @@ export function useMonaco () {
     }
   }
 
-  supportJsx()
-
   const { isDark } = useData()
 
   const defaultOptions: Monaco.editor.IStandaloneEditorConstructionOptions = {
@@ -47,5 +45,5 @@ export function useMonaco () {
     theme: isDark.value ? 'vitepress-dark' : 'vitepress-light',
   }
 
-  return { monaco, defaultOptions, isDark }
+  return { monaco, defaultOptions, isDark, supportTSX }
 }

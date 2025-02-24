@@ -47,7 +47,7 @@ let originalModel: Monaco.editor.ITextModel
 let modifiedModel: Monaco.editor.ITextModel
 
 const editorRef = shallowRef<Monaco.editor.IStandaloneDiffEditor>()
-const { monaco, defaultOptions: baseOptions, isDark } = useMonaco()
+const { monaco, defaultOptions: baseOptions, isDark, supportTSX } = useMonaco()
 const defaultOptions: Monaco.editor.IStandaloneDiffEditorConstructionOptions = {
   ...baseOptions,
   originalEditable: true,
@@ -73,6 +73,9 @@ watch(() => props.lang, () => {
   const modifiedValue = modifiedModel?.getValue() || props.modelValue
   if (originalModel) { originalModel.dispose() }
   if (modifiedModel) { modifiedModel.dispose() }
+
+  if (props.lang === 'typescript') { supportTSX() }
+
   originalModel = monaco.editor.createModel(originalValue, props.lang, getUri(true))
   modifiedModel = monaco.editor.createModel(modifiedValue, props.lang, getUri())
   editor.setModel({
