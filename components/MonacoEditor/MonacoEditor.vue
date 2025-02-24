@@ -1,6 +1,6 @@
 <template>
   <div ref="editorElement">
-    <slot v-if="isLoading" />
+    <slot v-if="isLoading"></slot>
   </div>
 </template>
 
