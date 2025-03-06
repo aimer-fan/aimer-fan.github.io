@@ -1,9 +1,5 @@
 <script setup lang="ts">
-// import { provide } from 'vue'
-
 defineProps<{ label?: string }>()
-
-// provide('label', props.label)
 </script>
 
 <template>

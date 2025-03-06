@@ -199,7 +199,7 @@ function loadImage (file: File) {
           <ButtonGroup v-model="formData.preset" :data-source="presets" />
         </FormItem>
         <FormItem label="width">
-          <Input v-model="formData.width" suffix="px" />
+          <Input v-model="formData.width" suffix="px" placeholder="width" />
         </FormItem>
         <FormItem label="height">
           <Input v-model="formData.height" suffix="px" />
