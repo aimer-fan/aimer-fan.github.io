@@ -1,6 +1,6 @@
-import { mount } from '@vue/test-utils'
 import ButtonGroup from '@/components/Form/components/ButtonGroup.vue'
-import { describe, it, expect } from 'vitest'
+import { mount } from '@vue/test-utils'
+import { describe, expect, it } from 'vitest'
 
 describe('ButtonGroup', () => {
   it('should render correctly', () => {

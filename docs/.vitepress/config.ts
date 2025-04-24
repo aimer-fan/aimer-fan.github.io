@@ -1,11 +1,10 @@
-import { defineConfig } from 'vitepress'
-import UnoCSS from 'unocss/vite'
-import mathjax3 from 'markdown-it-mathjax3'
-
-import sidebar from './sidebar'
 import nav from './nav'
+import sidebar from './sidebar'
 import { PROJECT_ROOT_PATH } from './utils/constants'
 import { customElements } from './utils/custom-elements'
+import mathjax3 from 'markdown-it-mathjax3'
+import UnoCSS from 'unocss/vite'
+import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({

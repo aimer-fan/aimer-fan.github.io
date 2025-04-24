@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import ButtonGroup from '@/components/Form/components/ButtonGroup.vue'
-import { ref, defineAsyncComponent } from 'vue'
 import { inBrowser } from 'vitepress'
+import { defineAsyncComponent, ref } from 'vue'
 
 const MonacoDiffEditor = inBrowser
   ? defineAsyncComponent(() => import('@/components/MonacoEditor/MonacoDiffEditor.vue'))

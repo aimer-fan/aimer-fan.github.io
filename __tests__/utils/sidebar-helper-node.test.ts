@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'vitest'
 import { genSidebarItemByPath } from '../../docs/.vitepress/utils/sidebar-helper-node'
+import { describe, expect, it } from 'vitest'
 
 describe('genSidebarItemByPath', () => {
   it('link path should equal input when no suffix', () => {

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
 import Button from '../Button.vue'
+import { ref } from 'vue'
 
 const dark = ref(true)
 

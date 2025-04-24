@@ -5,10 +5,9 @@
 </template>
 
 <script lang="ts" setup>
-/* eslint-disable no-unused-vars */
+import { useMonaco } from './useMonaco'
 import type * as Monaco from 'monaco-editor'
 import { onBeforeUnmount, ref, shallowRef, watch } from 'vue'
-import { useMonaco } from './useMonaco'
 
 interface Props {
 

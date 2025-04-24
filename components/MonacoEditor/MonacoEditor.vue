@@ -5,9 +5,9 @@
 </template>
 
 <script lang="ts" setup>
+import { useMonaco } from './useMonaco'
 import type * as Monaco from 'monaco-editor'
 import { computed, onMounted, onUnmounted, ref, shallowRef, watch } from 'vue'
-import { useMonaco } from './useMonaco'
 
 interface Props {
 
@@ -25,9 +25,9 @@ interface Props {
 }
 
 interface Emits {
-  // eslint-disable-next-line no-unused-vars
+
   (event: 'update:modelValue', value: string): void;
-  // eslint-disable-next-line no-unused-vars
+
   (event: 'load', editor: Monaco.editor.IStandaloneCodeEditor): void;
 }
 

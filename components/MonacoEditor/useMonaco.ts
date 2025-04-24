@@ -1,7 +1,7 @@
-import * as monaco from 'monaco-editor'
-import type * as Monaco from 'monaco-editor'
 import themeDark from './theme/vitepress-dark'
 import themeLight from './theme/vitepress-light'
+import * as monaco from 'monaco-editor'
+import type * as Monaco from 'monaco-editor'
 import { useData } from 'vitepress'
 import './worker.js'
 

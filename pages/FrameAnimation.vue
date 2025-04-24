@@ -1,10 +1,10 @@
 <script setup lang="ts">
+import Button from '@/components/Button.vue'
+import ButtonGroup from '@/components/Form/components/ButtonGroup.vue'
+import Input from '@/components/Form/components/Input.vue'
 import Form from '@/components/Form/Form.vue'
 import FormItem from '@/components/Form/FormItem.vue'
-import Input from '@/components/Form/components/Input.vue'
-import ButtonGroup from '@/components/Form/components/ButtonGroup.vue'
-import Button from '@/components/Button.vue'
-import { ref, watch, type CSSProperties } from 'vue'
+import { type CSSProperties, ref, watch } from 'vue'
 
 type Preset = {
   label: string;

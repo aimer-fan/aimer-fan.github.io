@@ -1,8 +1,7 @@
-import type { DefaultTheme } from 'vitepress'
 import { readFileSync } from 'node:fs'
 import { posix, resolve } from 'node:path'
-
 import { MARKDOWN_ROOT_PATH } from './constants'
+import type { DefaultTheme } from 'vitepress'
 
 /**
  * 通过路径映射成 sidebar 的配置

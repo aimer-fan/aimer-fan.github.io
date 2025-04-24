@@ -1,7 +1,6 @@
-import type { DefaultTheme } from 'vitepress'
-
 import sidebar from './sidebar'
 import { getHomeLinkByPrefix } from './utils/sidebar-helper'
+import type { DefaultTheme } from 'vitepress'
 
 const nav: DefaultTheme.NavItem[] = [
   {

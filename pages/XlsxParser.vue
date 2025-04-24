@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import Button from '@/components/Button.vue'
-import { useXlsxParser, type ErrorContext } from '@/composables/useXlsxParser'
-import { defineAsyncComponent, ref } from 'vue'
+import { type ErrorContext, useXlsxParser } from '@/composables/useXlsxParser'
 import xlsxParserLib from '@/types/xlsxParser.d.ts?raw'
 import * as ts from 'typescript'
 import { inBrowser } from 'vitepress'
+import { defineAsyncComponent, ref } from 'vue'
 
 const MonacoEditor = inBrowser
   ? defineAsyncComponent(() => import('@/components/MonacoEditor/MonacoEditor.vue'))
