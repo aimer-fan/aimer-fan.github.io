@@ -4,6 +4,7 @@ import type { DefaultTheme } from 'vitepress'
 const sidebar: DefaultTheme.Sidebar = {
 
   '/web/': [
+    '/web/glassmorphism',
     '/web/package-manager',
     '/web/css',
     '/web/manual-cpu-throttling-rate',

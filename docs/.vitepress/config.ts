@@ -25,12 +25,8 @@ export default defineConfig({
     sidebar,
     nav,
     outline: [2, 3],
-    algolia: {
-      // cSpell: ignore QD2738AQTM aimer-fanio
-      appId: 'QD2738AQTM',
-      apiKey: '9497735206c11e45730a841a7b9bb931',
-      indexName: 'aimer-fanio',
-      placeholder: '请输入关键词',
+    search: {
+      provider: 'local',
     },
   },
   vue: {
