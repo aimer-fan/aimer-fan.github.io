@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Button from '@/components/Button.vue'
-import { type ErrorContext, useXlsxParser } from '@/composables/useXlsxParser'
+import { useXlsxParser } from '@/composables/useXlsxParser'
+import type { ErrorContext } from '@/composables/useXlsxParser'
 import xlsxParserLib from '@/types/xlsxParser.d.ts?raw'
 import * as ts from 'typescript'
 import { inBrowser } from 'vitepress'

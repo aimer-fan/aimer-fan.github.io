@@ -1,6 +1,7 @@
 /* eslint-disable ts/no-explicit-any */
 import ExcelJS from 'exceljs'
-import { type CellObject, read, utils } from 'xlsx'
+import { read, utils } from 'xlsx'
+import type { CellObject } from 'xlsx'
 
 export interface ErrorContext {
   pos: CellAddress;
