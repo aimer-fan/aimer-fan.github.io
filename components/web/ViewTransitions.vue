@@ -9,10 +9,13 @@ function handleClick (e: MouseEvent) {
 
   document.documentElement.style.setProperty('--x', clientX + 'px')
   document.documentElement.style.setProperty('--y', clientY + 'px')
-  if (document.startViewTransition) document.startViewTransition(() => {
+  if (document.startViewTransition) {
+    document.startViewTransition(() => {
+      dark.value = !dark.value
+    })
+  } else {
     dark.value = !dark.value
-  })
-  else dark.value = !dark.value
+  }
 }
 
 </script>

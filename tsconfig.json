@@ -1,7 +1,7 @@
 {
   "extends": "@vue/tsconfig/tsconfig.dom.json",
   "include": [
-    "**/*ts",
+    "**/*.ts",
     "docs/.vitepress/**/*.ts",
     "docs/**/*.vue",
     "./components/**/*.vue",
