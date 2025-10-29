@@ -2,7 +2,7 @@
 
 declare global {
   export interface Document {
-    startViewTransition(callback: () => void): { ready: Promise<void> };
+    startViewTransition(callback: () => void): { ready: Promise<void> }
   }
 }
 

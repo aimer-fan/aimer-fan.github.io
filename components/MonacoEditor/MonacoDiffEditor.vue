@@ -15,19 +15,19 @@ interface Props {
    * Programming Language (Not a locale for UI);
    * overrides `options.language`
   */
-  lang?: string;
+  lang?: string
 
   /**
    * Options passed to the second argument of `monaco.editor.createDiffEditor`
    */
-  options?: Monaco.editor.IStandaloneDiffEditorConstructionOptions;
-  original?: string;
-  modelValue?: string;
+  options?: Monaco.editor.IStandaloneDiffEditorConstructionOptions
+  original?: string
+  modelValue?: string
 }
 
 interface Emits {
-  (event: 'update:modelValue', value: string): void;
-  (event: 'load', editor: Monaco.editor.IStandaloneDiffEditor): void;
+  (event: 'update:modelValue', value: string): void
+  (event: 'load', editor: Monaco.editor.IStandaloneDiffEditor): void
 }
 
 const props = withDefaults(defineProps<Props>(), {

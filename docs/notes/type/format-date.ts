@@ -22,12 +22,11 @@ type MM = `0${Num}` | `1${0 | 1 | 2}`
 
 type DD = `${0}${Num}` | `${1 | 2}${Num2}` | `3${0 | 1}`
 
-type GenStr<Type extends string> =
-  Type extends 'YY'
-    ? YY
-    : Type extends 'MM'
-      ? MM
-      : DD
+type GenStr<Type extends string> = Type extends 'YY'
+  ? YY
+  : Type extends 'MM'
+    ? MM
+    : DD
 
 type FormatDate<Pattern extends string> = Pattern extends `${infer A}${Splitter}${infer B}${Splitter}${infer C}`
   ? Pattern extends `${A}${infer Sp}${B}${infer _}${C}`

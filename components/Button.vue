@@ -1,9 +1,9 @@
 <script lang="ts" setup>
 withDefaults(
   defineProps<{
-    size?: 'small' | 'medium';
-    mode?: 'primary' | 'dashed';
-    shape?: 'round' | 'square';
+    size?: 'small' | 'medium'
+    mode?: 'primary' | 'dashed'
+    shape?: 'round' | 'square'
   }>(),
   {
     size: 'medium',

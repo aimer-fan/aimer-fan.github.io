@@ -8,23 +8,23 @@ import { ref, watch } from 'vue'
 import type { CSSProperties } from 'vue'
 
 type Preset = {
-  label: string;
-  width: number;
-  height: number;
+  label: string
+  width: number
+  height: number
 }
 
 type Direction = 'horizontal' | 'vertical'
 
 type FormData = {
-  sourceWidth: number;
-  sourceHeight: number;
-  dataURL: string;
-  width: number;
-  height: number;
-  preset: Preset;
-  direction: Direction;
-  steps: number;
-  duration: number;
+  sourceWidth: number
+  sourceHeight: number
+  dataURL: string
+  width: number
+  height: number
+  preset: Preset
+  direction: Direction
+  steps: number
+  duration: number
 }
 
 const DEFAULT_WIDTH = 300
@@ -144,9 +144,9 @@ function findMinDivisors (num: number) {
 }
 
 type ImageInfo = {
-  dataURL: string;
-  width: number;
-  height: number;
+  dataURL: string
+  width: number
+  height: number
 }
 
 function loadImage (file: File) {

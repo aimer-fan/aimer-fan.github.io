@@ -15,20 +15,20 @@ interface Props {
    * Programming Language (Not a locale for UI);
    * overrides `options.language`
    */
-  lang?: string;
+  lang?: string
 
   /**
    * Options passed to the second argument of `monaco.editor.create`
    */
-  options?: Monaco.editor.IStandaloneEditorConstructionOptions;
-  modelValue?: string;
+  options?: Monaco.editor.IStandaloneEditorConstructionOptions
+  modelValue?: string
 }
 
 interface Emits {
 
-  (event: 'update:modelValue', value: string): void;
+  (event: 'update:modelValue', value: string): void
 
-  (event: 'load', editor: Monaco.editor.IStandaloneCodeEditor): void;
+  (event: 'load', editor: Monaco.editor.IStandaloneCodeEditor): void
 }
 
 const props = withDefaults(defineProps<Props>(), {

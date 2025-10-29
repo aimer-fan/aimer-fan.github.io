@@ -4,9 +4,7 @@ import { defineConfig } from 'vitest/config'
 const __dirname = new URL('.', import.meta.url).pathname
 
 export default defineConfig({
-  plugins: [
-    Vue(),
-  ],
+  plugins: [Vue()],
   resolve: { alias: { '@': __dirname } },
   test: {
     globals: true,
