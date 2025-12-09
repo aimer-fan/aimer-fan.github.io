@@ -15,25 +15,25 @@
   "license": "ISC",
   "author": "",
   "dependencies": {
-    "@types/react": "^18.3.18",
-    "@types/react-dom": "^18.3.5",
+    "@types/react": "^18.3.27",
+    "@types/react-dom": "^18.3.7",
     "monaco-editor": "^0.45.0",
-    "vue": "^3.5.17"
+    "vue": "^3.5.25"
   },
   "devDependencies": {
-    "@aimerfan/eslint-config": "^0.3.3",
-    "@types/node": "^20.16.10",
-    "@vitejs/plugin-vue": "^5.2.4",
+    "@aimerfan/eslint-config": "^0.3.4",
+    "@types/node": "^20.19.26",
+    "@vitejs/plugin-vue": "^6.0.2",
     "@vue/test-utils": "^2.4.6",
     "@vue/tsconfig": "^0.4.0",
-    "eslint": "^9.31.0",
+    "eslint": "^9.39.1",
     "jsdom": "^26.1.0",
-    "less": "^4.4.0",
+    "less": "^4.4.2",
     "markdown-it-mathjax3": "^4.3.2",
-    "typescript": "^5.5.4",
-    "unocss": "^66.3.3",
-    "vite": "^5.4.19",
-    "vitepress": "^1.6.3",
-    "vitest": "^1.6.1"
+    "typescript": "^5.9.3",
+    "unocss": "^66.5.10",
+    "vite": "^7.2.7",
+    "vitepress": "2.0.0-alpha.15",
+    "vitest": "^4.0.15"
   }
 }
