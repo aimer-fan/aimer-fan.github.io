@@ -2,7 +2,6 @@ import nav from './nav'
 import sidebar from './sidebar'
 import { PROJECT_ROOT_PATH } from './utils/constants'
 import { customElements } from './utils/custom-elements'
-import mathjax3 from 'markdown-it-mathjax3'
 import UnoCSS from 'unocss/vite'
 import { defineConfig } from 'vitepress'
 
@@ -15,10 +14,6 @@ export default defineConfig({
   cleanUrls: true,
   markdown: {
     lineNumbers: true,
-    // markdown-it config
-    config (md) {
-      md.use(mathjax3)
-    },
   },
   themeConfig: {
     logo: '/images/logo.png',

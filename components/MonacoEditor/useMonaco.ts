@@ -10,12 +10,12 @@ export function useMonaco () {
   monaco.editor.defineTheme('vitepress-light', themeLight)
 
   function supportTSX () {
-    monaco.languages.typescript.typescriptDefaults.setCompilerOptions({
+    monaco.typescript.typescriptDefaults.setCompilerOptions({
       noEmit: true,
-      jsx: monaco.languages.typescript.JsxEmit.Preserve,
+      jsx: monaco.typescript.JsxEmit.Preserve,
     })
 
-    monaco.languages.typescript.typescriptDefaults.setDiagnosticsOptions({
+    monaco.typescript.typescriptDefaults.setDiagnosticsOptions({
       noSemanticValidation: false,
       noSyntaxValidation: false,
     })
@@ -33,7 +33,7 @@ export function useMonaco () {
     )
     for (const [key, value] of Object.entries(definitions)) {
       const path = `file:///node_modules/@types/${key.replace('../../node_modules/@types/', '')}`
-      monaco.languages.typescript.typescriptDefaults.addExtraLib(value, path)
+      monaco.typescript.typescriptDefaults.addExtraLib(value, path)
     }
   }
 

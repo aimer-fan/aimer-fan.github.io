@@ -1,4 +1,4 @@
-import { defineConfig, presetAttributify, presetUno } from 'unocss'
+import { defineConfig, presetAttributify, presetWind3 } from 'unocss'
 
 export default defineConfig({
   theme: {
@@ -14,6 +14,6 @@ export default defineConfig({
   shortcuts: { 'blank-main': 'w-1400px mx-auto' },
   presets: [
     presetAttributify(),
-    presetUno(),
+    presetWind3(),
   ],
 })
