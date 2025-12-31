@@ -7,11 +7,13 @@ export default defineConfig({
       lg: '960px',
     },
     colors: {
-      //
       alt: 'var(--vp-c-bg-alt)',
     },
   },
-  shortcuts: { 'blank-main': 'w-1400px mx-auto' },
+  shortcuts: {
+    'blank-main': 'w-1400px mx-auto',
+    'custom-card': 'border border-solid border-[var(--vp-c-border)] rounded-lg overflow-hidden',
+  },
   presets: [
     presetAttributify(),
     presetWind3(),

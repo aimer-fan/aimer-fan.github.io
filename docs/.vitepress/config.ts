@@ -1,4 +1,5 @@
 import nav from './nav'
+import { CodePlugin } from './plugins/code'
 import sidebar from './sidebar'
 import { PROJECT_ROOT_PATH } from './utils/constants'
 import { customElements } from './utils/custom-elements'
@@ -14,6 +15,9 @@ export default defineConfig({
   cleanUrls: true,
   markdown: {
     lineNumbers: true,
+    config: (md) => {
+      CodePlugin(md)
+    },
   },
   themeConfig: {
     logo: '/images/logo.png',

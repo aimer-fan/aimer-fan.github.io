@@ -3,6 +3,7 @@ import DocPage from './DocPage.vue'
 import Layout from './Layout.vue'
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
+import Preview from '@/components/Preview.vue'
 
 
 import './custom.css'
@@ -13,6 +14,7 @@ const theme: Theme = {
   enhanceApp ({ app }) {
     app.component('DocPage', DocPage)
     app.component('Blank', Blank)
+    app.component('Preview', Preview)
   },
   Layout: Layout,
 }

@@ -69,6 +69,7 @@ const sidebar: DefaultTheme.Sidebar = {
   ].map(genSidebarItemByPath),
 
   '/others/': [
+    '/others/preview',
     '/others/acme.sh',
     '/others/v2ray',
     '/others/validate-input',
