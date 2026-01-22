@@ -6,7 +6,8 @@
     "mathjax",
     "qiankun",
     "unocss",
-    "vitepress"
+    "vitepress",
+    "vitesse"
   ],
   "eslint.useFlatConfig": true
 }

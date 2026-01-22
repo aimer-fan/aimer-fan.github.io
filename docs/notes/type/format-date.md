@@ -12,7 +12,8 @@ layout: DocPage
   const line = data.split('\n').length * 1.5
 
   const MonacoEditor = inBrowser
-    ? defineAsyncComponent(() => import('@/components/MonacoEditor/MonacoEditor.vue'))
+    // ? defineAsyncComponent(() => import('@/components/MonacoEditor/MonacoEditor.vue'))
+    ? defineAsyncComponent(() => import('@/components/MonacoEditor/ModernMonacoEditor.vue'))
     : () => null;
 
   const code = ref(data)
@@ -22,7 +23,7 @@ layout: DocPage
   <div class="mt-8">
     <Suspense>
       <template #fallback>Loading...</template>
-      <MonacoEditor :style="{ height: line + 'em' }" v-model="code" lang="typescript" />
+      <MonacoEditor :style="{ height: line + 'em' }" v-model="code" language="typescript" />
     </Suspense>
   </div>
 </ClientOnly>
