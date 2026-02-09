@@ -4,6 +4,7 @@ withDefaults(
     size?: 'small' | 'medium'
     mode?: 'primary' | 'dashed'
     shape?: 'round' | 'square'
+    [key: string]: any
   }>(),
   {
     size: 'medium',

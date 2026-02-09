@@ -2,7 +2,10 @@
 // import { inject } from 'vue'
 
 withDefaults(
-  defineProps<{ suffix?: string }>(),
+  defineProps<{
+    suffix?: string
+    [key: string]: any
+  }>(),
   { suffix: '' },
 )
 

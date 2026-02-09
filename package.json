@@ -9,6 +9,7 @@
     "docs:preview": "vitepress preview docs",
     "test:unit:watch": "vitest",
     "test:unit": "vitest run",
+    "test:coverage": "vitest run --coverage",
     "lint": "eslint ."
   },
   "keywords": [],
@@ -26,6 +27,7 @@
     "@mdit/plugin-container": "^0.22.2",
     "@types/node": "^25.0.3",
     "@vitejs/plugin-vue": "^6.0.3",
+    "@vitejs/plugin-vue-jsx": "^5.1.4",
     "@vitest/coverage-v8": "4.0.16",
     "@vue/test-utils": "^2.4.6",
     "@vue/tsconfig": "^0.8.1",

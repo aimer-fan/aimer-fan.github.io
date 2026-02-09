@@ -23,7 +23,7 @@ describe('ButtonGroup', () => {
         dataSource: ['Button1', 'Button2', 'Button3'],
       },
     })
-    await wrapper.findAll('button')[1].trigger('click')
+    await wrapper.findAll('button')[1]!.trigger('click')
     // should emit click event and value should be Button2
     expect(wrapper.emitted('update:modelValue')).toBeTruthy()
     expect(wrapper.emitted('update:modelValue')![0]).toEqual(['Button2'])
@@ -57,7 +57,7 @@ describe('ButtonGroup', () => {
         ],
       },
     })
-    await wrapper.findAll('button')[1].trigger('click')
+    await wrapper.findAll('button')[1]!.trigger('click')
     // should emit click event and value should be { label: 'Button2', value: 'button2' }
     expect(wrapper.emitted('update:modelValue')).toBeTruthy()
     expect(wrapper.emitted('update:modelValue')![0]).toEqual([{ label: 'Button2', value: 'button2' }])

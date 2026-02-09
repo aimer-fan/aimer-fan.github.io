@@ -8,4 +8,7 @@ describe('genSidebarItemByPath', () => {
   it('link path should remove suffix', () => {
     expect(genSidebarItemByPath('/notes/bugs/permission.md').link).toBe('/notes/bugs/permission')
   })
+  it('test should be empty when markdown no title', () => {
+    expect(genSidebarItemByPath('/index').text).toBe('')
+  })
 })

@@ -2,18 +2,23 @@
   "extends": "@vue/tsconfig/tsconfig.dom.json",
   "include": [
     "**/*.ts",
+    "**/*.tsx",
+    "**/*.vue",
     "docs/.vitepress/**/*.ts",
     "docs/**/*.vue",
     "./components/**/*.vue",
     "./components/**/*.ts",
     "types/**/*.ts",
     "uno.config.ts",
-    "pages/**/*.vue"
+    "pages/**/*.vue",
+    "__tests__/**/*.ts",
+    "__tests__/**/*.tsx"
   ],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"]
-    }
+    },
+    "jsx": "preserve"
   }
 }
