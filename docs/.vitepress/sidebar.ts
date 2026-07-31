@@ -72,6 +72,7 @@ const sidebar: DefaultTheme.Sidebar = {
     '/others/preview',
     '/others/acme.sh',
     '/others/v2ray',
+    '/others/nextcloud-memories-install',
     '/others/validate-input',
     '/others/vim',
     '/others/links',
